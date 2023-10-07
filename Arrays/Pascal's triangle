@@ -1,0 +1,30 @@
+class Solution {
+public:
+vector<int> generaterows(int row){
+    long long ans=1;
+    vector<int>ansrow;
+    ansrow.push_back(ans);
+    for(int col=1;col<row;col++){
+        ans *=(row-col);
+        ans /=col;
+        ansrow.push_back(ans);
+    }
+    return ansrow;
+}
+    	vector<vector<int>> generate(int n) {
+        // vector<vector<int>> res;
+        // for(int i = 0; i < numRows; i++) {
+        //     res.push_back(vector<int>(i+1,1));
+        //     for(int j = 1; j < i; j++)
+        //         res[i][j] = res[i-1][j-1] + res[i-1][j];
+        // }
+        // return res;
+
+        vector<vector<int>> res;
+        for(int i=1;i<=n;i++){
+            res.push_back(generaterows(i));
+
+        }
+        return res;
+    }
+};
