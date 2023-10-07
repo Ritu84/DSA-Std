@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        // next_permutation(nums.begin(),nums.end());
+        int n=nums.size();
+        int index=-1,j;
+        
+        //find the break point in the array to find longest subarray match
+        for(int i=n-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                index=i;
+                break;
+            }
+        }
+        if(index==-1){
+            reverse(nums.begin(), nums.end());
+            
+        }
+        //find the ele which is slightly greater than index element
+        else
+        {
+            int j=n-1;
+            while(nums[j]<=nums[index])j--;
+                swap(nums[j],nums[index]);
+                // break;
+            reverse(nums.begin()+index+1, nums.end());
+        }
+        //rev. remaining ele from index+1 position to last element
+        
+        
+        
+    }
+};
